@@ -367,7 +367,15 @@ class BinanceRestApiManager(object):
         return self.WEBSITE_URL + '/' + path
 
     def _create_futures_api_uri(self, path):
-        return self.FUTURES_URL + '/' + self.FUTURES_API_VERSION + '/' + path
+        if path == 'balance':
+            api_version = self.FUTURES_API_VERSION2
+        elif path == 'account':
+            api_version = self.FUTURES_API_VERSION2
+        elif path == 'positionRisk':
+            api_version = self.FUTURES_API_VERSION2
+        else:
+            api_version = self.FUTURES_API_VERSION
+        return self.FUTURES_URL + '/' + api_version + '/' + path
 
     def _create_futures_data_api_uri(self, path):
         return self.FUTURES_DATA_URL + '/' + path
