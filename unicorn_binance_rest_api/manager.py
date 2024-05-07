@@ -5611,7 +5611,7 @@ class BinanceRestApiManager(object):
         https://binance-docs.github.io/apidocs/futures/en/#exchange-information-market_data
 
         """
-        return self._request_futures_api('get', 'exchangeInfo', throw_exception=False)
+        return self._request_futures_api('get', 'exchangeInfo')
 
     def futures_order_book(self, **params):
         """Get the Order Book for the market
